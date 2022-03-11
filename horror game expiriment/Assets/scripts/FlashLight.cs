@@ -7,13 +7,13 @@ public class FlashLight : MonoBehaviour
     public GameObject ON;
     public GameObject OFF;
     private bool isON;
+ 
 
-
-
+  
 
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() { 
+    
         ON.SetActive(false);
         OFF.SetActive(true);
         isON = false;
@@ -24,8 +24,10 @@ public class FlashLight : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+           
             if (isON)
             {
+              
                 ON.SetActive(false);
                 OFF.SetActive(true);
 
@@ -33,12 +35,14 @@ public class FlashLight : MonoBehaviour
 
             if (!isON)
             {
+               
                 ON.SetActive(true);
                 OFF.SetActive(false);
 
             }
 
             isON = !isON;
+
         }
     }
 }
