@@ -39,9 +39,11 @@ public class keypad : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         btnClicked = 0; // No of times the button was clicked
         numOfGuesses = curPassword.Length; // Set the password length.
     }
+
 
     // Update is called once per frame
     void Update()
@@ -72,6 +74,7 @@ public class keypad : MonoBehaviour
 
     }
 
+   
     void OnGUI()
     {
         // Action for clicking keypad( GameObject ) on screen
@@ -102,6 +105,8 @@ public class keypad : MonoBehaviour
         if (keypadScreen)
         {
             objectToEnable.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
     }
