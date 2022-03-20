@@ -18,7 +18,10 @@ public class keypad : MonoBehaviour
 
     // Object to be enabled is the keypad. This is needed
     public GameObject objectToEnable;
-
+    //player movement disable
+    public GameObject player;
+    public GameObject look;
+    public GameObject deur;
     // *** Breakdown of header(public) variables *** \\
     // curPassword : Pasword to set. Ive set the password in the project. Note it can be any length and letters or numbers or sysmbols
     // input: What is currently entered
@@ -35,13 +38,14 @@ public class keypad : MonoBehaviour
     private bool keypadScreen;
     private float btnClicked = 0;
     private float numOfGuesses;
-
+   [SerializeField] private Animator door = null;
     // Start is called before the first frame update
     void Start()
     {
 
         btnClicked = 0; // No of times the button was clicked
         numOfGuesses = curPassword.Length; // Set the password length.
+
     }
 
 
@@ -57,6 +61,8 @@ public class keypad : MonoBehaviour
     
                 // LOG message that password is correct
                 Debug.Log("Correct Password!");
+                door.Play("Door_open", 0, 0.0f);
+                //deur.GetComponent<Transform>().eulerAngles = new Vector3(180, -90, -90);
                 input = ""; //Clear Password
                 btnClicked = 0;
 
@@ -100,13 +106,19 @@ public class keypad : MonoBehaviour
 
             }
         }
-
+        player.GetComponent<PlayerMovement>().enabled = true;
+        look.GetComponent<MouseLook>().enabled = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         // Disable sections when keypadScreen is set to true
         if (keypadScreen)
         {
             objectToEnable.SetActive(true);
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            //player movement disable
+            player.GetComponent<PlayerMovement>().enabled = false;
+            look.GetComponent<MouseLook>().enabled = false;
         }
 
     }
