@@ -22,7 +22,7 @@ public class angle : MonoBehaviour
     {
         lt.spotAngle = 0;
 
-        if (Input.GetKey(KeyCode.H))
+        if (Input.GetKey(KeyCode.Q))
         {
             lt.spotAngle = 50;
         }

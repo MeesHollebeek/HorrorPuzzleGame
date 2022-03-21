@@ -24,7 +24,7 @@ public class collor : MonoBehaviour
         lerpedColor = Color.white;
         lt.color = lerpedColor;
 
-        if (Input.GetKey(KeyCode.H))
+        if (Input.GetKey(KeyCode.Q))
         {
             
             lt.color = Color.Lerp(color0, color1, 0.8f);
